@@ -50,11 +50,13 @@ var rectangulo = /** @class */ (function () {
         this.base = 0;
         this.altura = 0;
     }
+    rectangulo.prototype.calcularArea = function (base, altura) {
+        var resultado = base * altura;
+        return resultado;
+    };
     return rectangulo;
 }());
-function calculaArea(base, altura) {
-    var resultado = base * altura;
-    return resultado;
-}
-var resul = calculaArea(5, 2);
-console.log("Resultado: " + resul);
+var rectan = new rectangulo;
+rectan.base = 5;
+rectan.altura = 2;
+console.log("Resultado: " + rectan.calcularArea(rectan.base, rectan.altura));

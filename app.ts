@@ -1,7 +1,7 @@
 // Uso de Let y Const
-const nombre = "Ricardo Tapia";
-const edad = 23;
-let PERSONAJE = {
+let nombre = "Ricardo Tapia";
+let edad = 23;
+const PERSONAJE = {
   nombre: nombre,
   edad: edad
 };
@@ -67,11 +67,14 @@ class rectangulo{
     altura:number=0;
 
     constructor(){   }
+    calcularArea(base:number, altura:number){
+        let resultado = base * altura;
+        return resultado;
+    }
 }
 
-function calculaArea(base: number, altura:number){
-    let resultado = base * altura;
-    return resultado;
-}
-let resul = calculaArea(5,2);
-console.log("Resultado: " +resul);
+const rectan = new rectangulo;
+rectan.base = 5;
+rectan.altura = 2;
+
+console.log("Resultado: " +rectan.calcularArea(rectan.base, rectan.altura));
