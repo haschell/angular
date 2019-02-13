@@ -10,7 +10,7 @@ export class FooterComponent {
   anio: number;
 
   constructor() {
-    this.anio = new Date().getFullYear();
+    this.anio = new Date().getFullYear() + 1;
   }
 
 }
