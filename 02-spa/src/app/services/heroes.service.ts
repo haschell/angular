@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LowerCasePipe, NgForOf } from '@angular/common';
 
 @Injectable()
 export class HeroesService {
@@ -63,6 +64,21 @@ export class HeroesService {
         return this.heroes;
     }
 
+    getHeroe( i: string ) {
+      return this.heroes[i];
+    }
+
+    buscarHeroes( termino: string ) {
+      const heroesArr: Heroe[] = [];
+      termino = termino.toLowerCase();
+      for ( const heroe of this.heroes ) {
+        const nombre = heroe.nombre.toLowerCase();
+        if ( nombre.indexOf( termino ) >= 0 ) {
+          heroesArr.push (heroe);
+        }
+      }
+      return heroesArr;
+    }
 }
 
 export interface Heroe {
