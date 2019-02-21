@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,21 @@ export class SpotifyService {
 
   constructor(private http: HttpClient) { }
 
-  getNewReleases() {
+  getQuery( query: string ) {
+    const url = `https://api.spotify.com/v1/${query}`;
 
     const headers = new HttpHeaders ({
-      Authorization: 'Bearer BQDjvlbFhWO5voBMEPn8GoIKtpho4WQcVpvgaO3_8S9nmAzO7UypHXbxJCVd0W1mB0QkzMOjtqF1J2odzE0'
+      Authorization: 'Bearer BQC8zyFWkkPQyz7Cz-PjVvZalhhZUXlek0QlhYuSqcNxh5vi1K2FT7Lw5YpZKV1xZ0AawbEfAS6-NSB41ow'
     });
+    return this.http.get(url, {headers});
+  }
 
-    return this.http.get('https://api.spotify.com/v1/browse/new-releases', {headers});
+  getNewReleases() {
+    return this.getQuery('browse/new-releases').pipe( map( data => data['albums'].items));
+  }
+
+  getArtista(termino: string) {
+    return this.getQuery(`search?q=${ termino }&type=artist&limit=15`).pipe( map( data => data['artists'].items));
   }
 }
 
