@@ -5,6 +5,7 @@ import { IonicModule, AlertController } from '@ionic/angular';
 import { DeseosService } from '../services/deseos.service';
 import { Router } from '@angular/router';
 import { Lista } from '../models/lista.model';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [ListasComponent],
@@ -13,7 +14,8 @@ import { Lista } from '../models/lista.model';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    PipesModule
   ]
 })
 export class ComponentsModule {
