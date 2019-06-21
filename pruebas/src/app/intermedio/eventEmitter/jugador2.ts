@@ -1,4 +1,4 @@
-import {Eventemitter} from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 export class Jugador2 {
     hp: number;
