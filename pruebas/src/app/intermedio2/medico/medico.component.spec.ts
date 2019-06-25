@@ -1,6 +1,7 @@
 import { MedicoComponent } from "./medico.component";
-import { TestBed, ComponentFixture } from "@angular/core/testing";
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { MedicosService } from "../../intermedio/espias/medicos.service";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe("Medico component", () => {
   let component: MedicoComponent;
@@ -8,7 +9,9 @@ describe("Medico component", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MedicoComponent]
+      declarations: [MedicoComponent],
+      providers: [MedicosService],
+      imports: [HttpClientModule]
     });
 
     fixture = TestBed.createComponent(MedicoComponent);
