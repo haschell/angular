@@ -6,6 +6,8 @@ import { MedicosComponent } from './intermedio/espias/medicos.component';
 import { MedicoComponent } from './intermedio2/medico/medico.component';
 import { HospitalComponent } from './intermedio2/hospital/hospital.component';
 import { IncrementadorComponent } from './intermedio2/incrementador/incrementador.component';
+import { RUTAS } from './avanzado/rutas/app.routes';
+import { RouterModule } from '@angular/router/src/router_module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { IncrementadorComponent } from './intermedio2/incrementador/incrementado
     IncrementadorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(RUTAS)
   ],
   providers: [],
   bootstrap: [AppComponent]
