@@ -19,7 +19,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador nombre="Progress Azul" progreso="20"></app-incrementador>
+                <app-incrementador (cambioValor)="progreso1 = $event" nombre="Progress Azul" [progreso]="progreso1"></app-incrementador>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador nombre="Progress Verde"></app-incrementador>
+                <app-incrementador (cambioValor)="progreso2 = $event" nombre="Progress Verde" [progreso]="progreso2"></app-incrementador>
             </div>
         </div>
     </div>
