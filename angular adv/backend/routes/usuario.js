@@ -6,6 +6,10 @@ var bcrypt = require('bcryptjs');
 
 var Usuario = require('../models/usuario');
 
+var jwt = require('jsonwebtoken');
+
+var mdAutenticacion = require('../middlewares/autenticacion');
+
 // Rutas
 app.get('/', (req, res, next) => {
 
@@ -28,11 +32,13 @@ app.get('/', (req, res, next) => {
 
 });
 
+
+
 // ================================
 // Actualizar usuario
 // ================================
 
-app.put('/:id', (req, res) => {
+app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
     var id = req.params.id;
     var body = req.body;
 
@@ -82,7 +88,7 @@ app.put('/:id', (req, res) => {
 // Crear un nuevo usuario
 // ================================
 
-app.post('/', (req, res) => {
+app.post('/', mdAutenticacion.verificaToken, (req, res) => {
     var body = req.body;
     var usuario = new Usuario({
         nombre: body.nombre,
@@ -102,7 +108,8 @@ app.post('/', (req, res) => {
         }
         res.status(201).json({
             ok: true,
-            usuario: usuarioGuardado
+            usuario: usuarioGuardado,
+            usuariotoken: req.usuario
         });
     });
 });
@@ -110,7 +117,7 @@ app.post('/', (req, res) => {
 // ================================
 // Eliminar un usuario por el id
 // ================================
-app.delete('/:id', (req, res) => {
+app.delete('/:id', mdAutenticacion.verificaToken, (req, res) => {
     var id = req.params.id;
 
     Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
