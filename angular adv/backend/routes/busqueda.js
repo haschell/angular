@@ -20,15 +20,15 @@ app.get('/coleccion/:tabla/:busqueda', (req, res) => {
 
     switch (tabla) {
         case 'usuarios':
-            primesa = buscarUsuarios(busqueda, regex);
+            promesa = buscarUsuarios(busqueda, regex);
             break;
 
         case 'medicos':
-            primesa = buscarMedicos(busqueda, regex);
+            promesa = buscarMedicos(busqueda, regex);
             break;
 
         case 'hospitales':
-            primesa = buscarHospitales(busqueda, regex);
+            promesa = buscarHospitales(busqueda, regex);
             break;
 
         default:
