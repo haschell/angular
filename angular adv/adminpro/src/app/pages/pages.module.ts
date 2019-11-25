@@ -9,14 +9,15 @@ import { FormsModule } from '@angular/forms';
 // ng2charts
 import { ChartsModule } from 'ng2-charts';
 
+// Pipes module
+import { PipesModule } from '../pipes/pipes.module';
+
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-
-
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ]
 })
 export class PagesModule {}
