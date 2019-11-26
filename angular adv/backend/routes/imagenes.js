@@ -10,7 +10,6 @@ app.get('/:tipo/:img', (req, res, next) => {
 
     var tipo = req.params.tipo;
     var img = req.params.img;
-    console.log("Añadiendo linea random");
     var pathImagen = path.resolve(__dirname, `../uploads/${tipo}/${img}`);
 
     if (fs.existsSync(pathImagen)) {
