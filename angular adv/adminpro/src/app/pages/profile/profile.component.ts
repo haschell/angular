@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
     }
     this._usuarioService.actualizarUsuario(this.usuario).subscribe(resp => {
       console.log(resp);
+      console.log('Prueba');
     });
   }
 
