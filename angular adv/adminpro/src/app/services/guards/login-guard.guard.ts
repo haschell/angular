@@ -10,7 +10,6 @@ constructor(public _usuarioService: UsuarioService, public router: Router) {}
     canActivate(){
 
       if (this._usuarioService.estaLogueado()) {
-        console.log('Pasó el Guard');
         return true;
       } else {
         console.log('Bloqueado por el guard');
